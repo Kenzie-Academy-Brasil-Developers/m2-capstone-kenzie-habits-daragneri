@@ -14,39 +14,39 @@
     cursor: pointer;
 }
 
-.btn-sm {
+.btn__sm {
     width: fit-content;
     height: 2rem;
 }
 
-.btn-azul {
+.btn__azul {
     background-color: rgba(65, 90, 243, 1);
 }
 
-.btn-azul-claro {
+.btn__azul__claro {
     background-color: rgba(65, 80, 210, 1);
 }
 
-.btn-disabled {
+.btn__disabled {
     background-color: rgba(215, 228, 251, 1);
     cursor: not-allowed;
 }
 
-.btn-cinza-claro {
+.btn__cinza__claro {
     background-color: rgba(233, 236, 239, 1);
     color: black;
 }
 
-.btn-cinza-escuro {
+.btn__cinza__escuro {
     background-color: rgba(173, 181, 189, 1);
     color: black;
 }
 
-.btn-vermelho {
+.btn__vermelho {
     background-color:rgba(240, 56, 57, 1);
 }
 
-.btn-vermelho-escuro {
+.btn__vermelho__escuro {
     background-color: rgba(230, 68, 69, 1);
 }
 
