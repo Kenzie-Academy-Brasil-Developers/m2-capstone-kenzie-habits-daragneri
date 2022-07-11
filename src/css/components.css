@@ -1,6 +1,5 @@
 /* CLASSES DE BOTÕES */
 
-
 .btn {
     color: white;
     border: none;
@@ -50,3 +49,4 @@
 .btn-vermelho-escuro {
     background-color: rgba(230, 68, 69, 1);
 }
+
