@@ -14,39 +14,39 @@
     cursor: pointer;
 }
 
-.btn__sm {
+.btn--sm {
     width: fit-content;
     height: 2rem;
 }
 
-.btn__azul {
-    background-color: rgba(65, 90, 243, 1);
+.btn--azul {
+    background-color: rgba(var(--marca-azul), 1);
 }
 
-.btn__azul__claro {
-    background-color: rgba(65, 80, 210, 1);
+.btn--azul-claro {
+    background-color: rgba(var(--marca-azul-escuro), 1);
 }
 
-.btn__disabled {
-    background-color: rgba(215, 228, 251, 1);
+.btn--disabled {
+    background-color: rgba(var(--marca-azul-claro), 1);
     cursor: not-allowed;
 }
 
-.btn__cinza__claro {
-    background-color: rgba(233, 236, 239, 1);
+.btn--cinza-claro {
+    background-color: rgba(var(--grey-4), 1);
     color: black;
 }
 
-.btn__cinza__escuro {
-    background-color: rgba(173, 181, 189, 1);
+.btn--cinza-escuro {
+    background-color: rgba(var(--grey-3) 1);
     color: black;
 }
 
-.btn__vermelho {
-    background-color:rgba(240, 56, 57, 1);
+.btn--vermelho {
+    background-color:rgba(var(--red--2), 1);
 }
 
-.btn__vermelho__escuro {
-    background-color: rgba(230, 68, 69, 1);
+.btn--vermelho-escuro {
+    background-color: rgba(var(--red--1), 1);
 }
 
