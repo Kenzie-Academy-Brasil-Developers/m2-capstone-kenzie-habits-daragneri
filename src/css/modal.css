@@ -6,7 +6,7 @@
     border-radius: 0.3rem;
     padding: 2rem;
     gap: 1rem;
-    background-color: rgba(var(255, 255, 255), 1);
+    background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.233);
 }
 
@@ -25,6 +25,7 @@
     border: none;
     background-color: inherit;
     color: rgba(var(--grey-3), 1);
+    cursor: pointer;
 }
 
 .form__input__name {
@@ -71,4 +72,27 @@
 
 .form__modal__body > select + option {
     width: 100%;
+}
+
+.btn__excluir {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+}
+
+.excluir {
+    width: 25rem;
+}
+
+.fundo__preto {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(var(--grey-1), 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
