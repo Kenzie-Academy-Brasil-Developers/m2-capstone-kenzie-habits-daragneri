@@ -1,0 +1,74 @@
+.form__modal {
+    display: flex;
+    flex-direction: column;
+    width: 31rem;
+    height: fit-content;
+    border-radius: 0.3rem;
+    padding: 2rem;
+    gap: 1rem;
+    background-color: rgba(var(255, 255, 255), 1);
+    border: 1px solid rgba(0, 0, 0, 0.233);
+}
+
+.form__modal__name {
+    font-weight: 600;
+}
+
+.form__modal__header {
+    display: flex;
+    max-width: inherit;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+.form__modal__header > button {
+    border: none;
+    background-color: inherit;
+    color: rgba(var(--grey-3), 1);
+}
+
+.form__input__name {
+    font-weight: 400;
+    font-size: 0.875rem;
+    padding: 0.5rem 0
+}
+
+.campo__titulo {
+    width: 100%;
+    max-height: 1rem;
+    background-color: rgba(var(--grey-4), 1);
+    border: 1px solid rgba(var(--grey-3), 0.2);
+}
+
+.campo__descricao {
+    width: 100%;
+    height: 5rem;
+    background-color: rgba(var(--grey-4), 1);
+    border: 1px solid rgba(var(--grey-3), 0.2);
+}
+
+.form__modal > button {
+    width: 100%;
+}
+
+.status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form__modal__body > span {
+    font-weight: 500;
+}
+
+.form__modal__body > select {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-radius: 0.2rem;
+    background-color: rgba(var(--grey-4), 1);
+    border: 1px solid rgba(var(--grey-3), 0.2);
+}
+
+.form__modal__body > select + option {
+    width: 100%;
+}
