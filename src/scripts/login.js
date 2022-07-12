@@ -1,6 +1,6 @@
 import Users from "../controller/Api.users.controller.js"
 const form = document.querySelector(".form")
-form.addEventListener("submit", async(event) => {
+form.addEventListener("submit", async (event) => {
     event.preventDefault()
     let login = {
         email: event.srcElement[0].value,
@@ -8,8 +8,3 @@ form.addEventListener("submit", async(event) => {
     }
     await Users.userLogin(login)
 })
-   
-
-
-
-
