@@ -30,7 +30,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     justify-content: center;
     align-items: center;
-    height: 97vh;
+    height: 100vh;
+    overflow-y: hidden;
 
 }
 main {
