@@ -48,19 +48,19 @@ class criarHabito {
 
         const opt1 = document.createElement('option')
         opt1.value = 'saude'
-        opt1.text = 'Saúde'
+        opt1.text = '🧡 Saúde'
         
         const opt2 = document.createElement('option')
         opt2.value = 'alimentacao'
-        opt2.text = 'Alimentação'
+        opt2.text = '🍴 Alimentação'
 
         const opt3 = document.createElement('option')
         opt3.value = 'exercicios'
-        opt3.text = 'Exercícios'
+        opt3.text = '🏃 Exercícios'
         
         const opt4 = document.createElement('option')
         opt4.value = 'estudos'
-        opt4.text = 'Estudos'
+        opt4.text = '📖 Estudos'
         
         select.add(option)
         select.add(opt1)
