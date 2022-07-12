@@ -57,11 +57,12 @@ export default class deletaHabito {
         botaoExcluir.classList.add('btn', 'btn--vermelho')
         botaoExcluir.innerText = 'Sim, excluir este habíto'
 
-        // botaoExcluir.addEventListener('click', () => {
-        //     Habits.deleteHabit(habitId)
-        //     .then(response => response)
-        //     .remove()
-        // })
+        botaoExcluir.addEventListener('click', (e) => {
+            e.preventDefault();
+            Habits.deleteHabit(habitId)
+            .then(response => response)
+            .remove()
+        })
 
         divExcluir.append(botaoCancelar, botaoExcluir)
         form.append(divExcluir)
