@@ -24,6 +24,11 @@ export default class deletaHabito {
         modalHeader.append(modalName, buttonClose)
         form.appendChild(modalHeader)
 
+        buttonClose.addEventListener('click', (e) => {
+            e.preventDefault()
+            fundoPreto.style.display = 'none';
+        })
+
         let modalBody = this.modalBody()
         const h2 = document.createElement('h2')
         h2.classList.add('form__modal__name')
@@ -42,6 +47,11 @@ export default class deletaHabito {
         const botaoCancelar = document.createElement('button')
         botaoCancelar.classList.add('btn', 'btn--cinza-claro')
         botaoCancelar.innerText = 'Cancelar'
+
+        botaoCancelar.addEventListener('click', (e) => {
+            e.preventDefault()
+            fundoPreto.style.display = 'none';
+        })
 
         const botaoExcluir = document.createElement('button')
         botaoExcluir.classList.add('btn', 'btn--vermelho')
