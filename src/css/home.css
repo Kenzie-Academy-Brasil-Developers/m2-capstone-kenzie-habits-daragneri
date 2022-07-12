@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700&display=swap');
+
+
+.header-div{
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    height: 58px;
+    background-color: rgba(var(--grey-6),1);;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-div-img{
+    width: 40px;
+    height: 40px;
+}
+
+.header{
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.header-div-h1{
+    color: rgba(var(--marca-azul-escuro),1);
+}
+
+.header-div-nav{
+    background-color: rgba(var(--marca-azul-escuro),1);
+}
+
+.header-nav{
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    height: 183px;
+    margin: 0 auto;
+}
+
+.header-nav-img{
+    width: 90px;
+    height: 90px;
+}
+
+.header-nav-h2{
+    margin: 0px 0px 60px 20px;
+    color: rgba(var(--grey-6),1);;
+}
+
+.container-cabecalho-lista{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    height: 60px;
+    margin: 0 auto 30px;
+}
+
+.container-cabecalho-lista-opcao{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+
+
+.container-cabecalho-lista-opcao .btn{
+    background-color: rgba(var(--marca-azul-escuro), 1);
+}  
+
+.container-cabecalho-lista-texto h2{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+
+.container-lista-descricao{
+    display: flex;
+    justify-content: space-between;
+    width: 1150px;
+    margin: 0 auto;
+    color: rgba(0, 0, 0, 0.324)
+}
+
+
+.container-lista-descricao-1{
+    display: flex;
+    gap: 25px;
+}
+
+.container-lista-descricao-2{
+    display: flex;
+    gap: 217px;
+    margin-bottom: 10px;
+}
+
+.lista-decricao{
+   gap: 60px;
+}
+
+
+
+
+.dados-habitos{
+    display: flex;
+    justify-content: space-between;
+    width: 1150px;
+    margin: 20px auto;
+    
+}
+
+.dados-habitos-1{
+    display: flex;
+    align-items: center;
+    gap: 52px;
+}
+
+.dados-habitos-2{
+    display: flex;
+    align-items: center;
+    gap: 203px;
+}
+
+.dados-habitos-categoria{
+    background: rgba(var(--marca-azul-claro), 1);
+    color: rgba(var(--marca-azul-escuro), 1);
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.btn{
+    background-color: rgba(var(--marca-azul-escuro), 1);
+    margin: 0 auto;
+}
