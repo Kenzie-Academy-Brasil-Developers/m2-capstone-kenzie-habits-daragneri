@@ -22,11 +22,10 @@ export default class Users {
                 }
             })
             .catch((err) => {
-                const senha = document.querySelector(".senha")
-                const erro = document.createElement("p")
-
-                erro.innerText = err
-                senha.append(erro)
+                let invalidLabel = document.querySelector('.invalid_label')
+                invalidLabel.innerText = err.message
+                invalidLabel.className = 'invalid_label'
+                
             })
     }
 
