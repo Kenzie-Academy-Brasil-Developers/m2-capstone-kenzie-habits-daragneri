@@ -48,12 +48,14 @@
     border: 1px solid rgba(var(--grey-3), 0.2);
 }
 
+
 textarea {
     box-sizing: border-box; 
     max-width: 100%; 
     font-family: 'Inter', sans-serif;
     padding: 0.5rem;
 }
+
 
 .form__modal > button {
     width: 100%;
@@ -63,7 +65,9 @@ textarea {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     padding: 1rem 0;
+
 }
 
 .form__modal__body > span {
@@ -90,7 +94,9 @@ textarea {
 
 .excluir {
     width: 25rem;
+
     gap: 3rem;
+
 }
 
 .fundo__preto {
