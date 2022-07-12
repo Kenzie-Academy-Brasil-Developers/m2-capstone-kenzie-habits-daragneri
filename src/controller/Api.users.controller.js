@@ -23,7 +23,9 @@ export default class Users {
             })
             .catch((err) => {
                 let invalidLabel = document.querySelector('.invalid_label')
+                invalidLabel.innerText = err.message
                 invalidLabel.className = 'invalid_label'
+                
             })
     }
 
