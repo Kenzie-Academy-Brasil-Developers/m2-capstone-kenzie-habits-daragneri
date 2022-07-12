@@ -23,6 +23,9 @@ time, mark, audio, video, input, button {
 	font: inherit;
 	vertical-align: baseline;
 }
+li, ul{
+	list-style: none;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
