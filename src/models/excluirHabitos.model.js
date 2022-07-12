@@ -1,7 +1,9 @@
+import Habits from '../controller/Api.habits.controller.js'
+
 const body = document.querySelector('body');
 
-class deletaHabito {
-    static excluirHabito() {
+export default class deletaHabito {
+    static excluirHabito(habitId) {
         const fundoPreto = document.createElement('div');
         fundoPreto.classList.add('fundo__preto')
 
@@ -22,6 +24,11 @@ class deletaHabito {
         modalHeader.append(modalName, buttonClose)
         form.appendChild(modalHeader)
 
+        buttonClose.addEventListener('click', (e) => {
+            e.preventDefault()
+            fundoPreto.style.display = 'none';
+        })
+
         let modalBody = this.modalBody()
         const h2 = document.createElement('h2')
         h2.classList.add('form__modal__name')
@@ -41,9 +48,20 @@ class deletaHabito {
         botaoCancelar.classList.add('btn', 'btn--cinza-claro')
         botaoCancelar.innerText = 'Cancelar'
 
+        botaoCancelar.addEventListener('click', (e) => {
+            e.preventDefault()
+            fundoPreto.style.display = 'none';
+        })
+
         const botaoExcluir = document.createElement('button')
         botaoExcluir.classList.add('btn', 'btn--vermelho')
         botaoExcluir.innerText = 'Sim, excluir este habíto'
+
+        // botaoExcluir.addEventListener('click', () => {
+        //     Habits.deleteHabit(habitId)
+        //     .then(response => response)
+        //     .remove()
+        // })
 
         divExcluir.append(botaoCancelar, botaoExcluir)
         form.append(divExcluir)
@@ -58,5 +76,3 @@ class deletaHabito {
         return modalBody
     }
 }
-
-//deletaHabito.excluirHabito()
