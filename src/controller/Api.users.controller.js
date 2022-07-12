@@ -1,7 +1,7 @@
 export default class Users {
-    static baseUrl = 'https://habits-kenzie.herokuapp.com'   
-    
-    static async userLogin(data){
+    static baseUrl = 'https://habits-kenzie.herokuapp.com'
+
+    static async userLogin(data) {
         return await fetch(`${this.baseUrl}/api/userLogin`, {
             method: "POST",
             headers: {
@@ -9,16 +9,27 @@ export default class Users {
             },
             body: JSON.stringify(data),
         })
-        .then(res => res.json())
-        .then((res) => {
-            localStorage.setItem('@captsone:token', res.token)
-            localStorage.setItem('@captsone:username', res.response.usr_name)
-            localStorage.setItem('@captsone:usr_img', res.response.usr_image)
-        })
-        .catch(err => console.log(err))
+            .then(res => res.json())
+            .then((res) => {
+                console.log(res)
+                if (res.token) {
+                    localStorage.setItem('@capstone:token', JSON.stringify(res.token))
+                    localStorage.setItem('@capstone:username', JSON.stringify(res.response.usr_name))
+                    localStorage.setItem('@capstone:usr_img', JSON.stringify(res.response.usr_image))
+                    window.location.href = "../views/homepage.views.html"
+                } else {
+                    throw new Error(res.message)
+                }
+            })
+            .catch((err) => {
+                let invalidLabel = document.querySelector('.invalid_label')
+                invalidLabel.innerText = err.message
+                invalidLabel.className = 'invalid_label'
+
+            })
     }
 
-    static async updateProfile(data){
+    static async updateProfile(data) {
         const token = JSON.parse(localStorage.getItem('@captsone:token'))
         return await fetch(`${this.baseUrl}/api/user/profile`, {
             method: "PATCH",
@@ -28,10 +39,10 @@ export default class Users {
             },
             body: JSON.stringify(data),
         })
-        .then(res => res.json())
-        .then(res => res)
-        .catch(err => console.log(err))
+            .then(res => res.json())
+            .then(res => res)
+            .catch(err => console.log(err))
     }
-    
+
 }
 
