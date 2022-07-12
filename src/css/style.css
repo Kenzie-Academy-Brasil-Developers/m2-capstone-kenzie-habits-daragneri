@@ -3,22 +3,23 @@
 :root {
     /* CORES DA MARCA */
 
-    --brand-1: rgba(65, 90, 243, 1)
-    --brand-2: rgba(65, 80, 210, 1)
-    --brand-3: rgba(215, 228, 251, 1)
+    --marca-azul: 65, 90, 243;
+    --marca-azul-escuro: 65, 80, 210;
+    --marca-azul-claro: 215, 228, 251;
 
-    /* TONS DE CINZA PARA BOTÕES, TEXTOS E BACKGROUNDS */
+    /* TONS DE CINZA PARA BOTÕES, TEXTOS E BACKGROUNDS 
+    Do mais escuro para o mais claro */
 
-    --grey-1: rgba(33, 37, 41, 1)
-    --grey-2: rgba(52, 58, 64, 1)
-    --grey-3: rgba(173, 181, 189, 1)
-    --grey-4: rgba(233, 236, 239, 1)
-    --grey-5: rgba(241, 243, 245, 1)
-    --grey-6: rgba(255, 255, 255, 1)
+    --grey-1: 33, 37, 41;
+    --grey-2: 52, 58, 64;
+    --grey-3: 173, 181, 189;
+    --grey-4: 233, 236, 239;
+    --grey-5: 241, 243, 245;
+    --grey-6: 255, 255, 255;
 
-    /* CORES PARA FEEDBACK (ALERTA, SUCESSO, ERRO...) */
+    /* CORES PARA FEEDBACK (ALERTA, SUCESSO, ERRO */
 
-    --green-sucess: rgba(86, 207, 142, 1)
-    --red--1: rgba(230, 68, 69, 1)
-    --red--2: rgba(240, 56, 57, 1)
+    --green-sucess: 86, 207, 142;
+    --red--1: 230, 68, 69;
+    --red--2: 240, 56, 57;
 }
