@@ -20,7 +20,6 @@ export default class Users {
                 } else {
                     throw new Error(res.message)
                 }
-
             })
             .catch((err) => {
                 const senha = document.querySelector(".senha")
