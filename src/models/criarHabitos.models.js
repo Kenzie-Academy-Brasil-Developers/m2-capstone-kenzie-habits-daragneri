@@ -1,3 +1,5 @@
+import Habits from '../controller/Api.habits.controller.js'
+
 const body = document.querySelector('body');
 
 class criarHabito {
@@ -31,6 +33,8 @@ class criarHabito {
         let titulo = this.modalInputName('Título')
         const formTitle = document.createElement('input')
         formTitle.classList.add('campo__titulo')
+        formTitle.id = 'formTitle'
+
         modalBody.append(titulo, formTitle)
         form.appendChild(modalBody)
 
@@ -39,6 +43,8 @@ class criarHabito {
         const textField = document.createElement('textarea')
         textField.classList.add('campo__descricao')
         textField.placeholder = 'Digite uma descrição'
+        textField.id = 'textField'
+
         modalBody2.append(descricao, textField)
         form.appendChild(modalBody2)
 
@@ -46,6 +52,7 @@ class criarHabito {
         let categoria = this.modalInputName('Categoria')
         const select = document.createElement('select')
         select.name = 'categoria'
+        select.id = 'categoria'
         
         const option = document.createElement('option')
         option.disabled, option.selected, option.hidden
@@ -79,9 +86,20 @@ class criarHabito {
         buttonSubmit.classList.add('btn', 'btn--azul')
         buttonSubmit.innerText = 'Inserir'
 
-        /* buttonSubmit.addEventListener('click', () => {
-            postmethod
-        }) */
+        buttonSubmit.addEventListener('click', async (e) => {
+            e.preventDefault()
+            const titulo = document.getElementById('formTitle').value
+            const textField = document.getElementById('textField').value
+            const select = document.getElementById('categoria').value
+
+            Habits.createHabit({
+                "habit_title": titulo,
+                "habit_description": textField,
+                "habit_category": select
+            })
+            .then(response => console.log(response))
+            .catch(err => console.log(err))
+        })
 
         form.appendChild(buttonSubmit)
 
