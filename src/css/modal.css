@@ -48,6 +48,12 @@
     border: 1px solid rgba(var(--grey-3), 0.2);
 }
 
+textarea {
+    box-sizing: border-box; 
+    max-width: 100%; 
+    font-family: 'Inter', sans-serif;
+}
+
 .form__modal > button {
     width: 100%;
 }
