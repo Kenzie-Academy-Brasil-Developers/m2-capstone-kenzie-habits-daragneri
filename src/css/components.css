@@ -1,0 +1,52 @@
+/* CLASSES DE BOTÕES */
+
+.btn {
+    color: white;
+    border: none;
+    border-radius: 0.2rem;
+    width: fit-content;
+    height: 2.5rem;
+    padding: 0.75rem 3.125rem 0.75rem 3.125rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn--sm {
+    width: fit-content;
+    height: 2rem;
+}
+
+.btn--azul {
+    background-color: rgba(var(--marca-azul), 1);
+}
+
+.btn--azul-claro {
+    background-color: rgba(var(--marca-azul-escuro), 1);
+}
+
+.btn--disabled {
+    background-color: rgba(var(--marca-azul-claro), 1);
+    cursor: not-allowed;
+}
+
+.btn--cinza-claro {
+    background-color: rgba(var(--grey-4), 1);
+    color: black;
+}
+
+.btn--cinza-escuro {
+    background-color: rgba(var(--grey-3) 1);
+    color: black;
+}
+
+.btn--vermelho {
+    background-color:rgba(var(--red--2), 1);
+}
+
+.btn--vermelho-escuro {
+    background-color: rgba(var(--red--1), 1);
+}
+
