@@ -22,6 +22,11 @@ class criarHabito {
         modalHeader.append(modalName, buttonClose)
         form.appendChild(modalHeader)
 
+        buttonClose.addEventListener('click', (e) => {
+            e.preventDefault()
+            fundoPreto.style.display = 'none';
+        })
+
         let modalBody = this.modalBody()
         let titulo = this.modalInputName('Título')
         const formTitle = document.createElement('input')

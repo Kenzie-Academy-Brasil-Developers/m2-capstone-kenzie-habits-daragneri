@@ -1,7 +1,9 @@
+import deletaHabito from '../models/excluirHabitos.model.js'
+
 const body = document.querySelector('body');
 
 class editarHabito {
-    static criarEdit() {
+    static criarEdit(habitId) {
         const fundoPreto = document.createElement('div');
         fundoPreto.classList.add('fundo__preto')
 
@@ -22,6 +24,11 @@ class editarHabito {
 
         modalHeader.append(modalName, buttonClose)
         form.appendChild(modalHeader)
+
+        buttonClose.addEventListener('click', (e) => {
+            e.preventDefault()
+            fundoPreto.style.display = 'none';
+        })
 
         let modalBody = this.modalBody()
         let titulo = this.modalInputName('Título')
@@ -88,9 +95,17 @@ class editarHabito {
         botaoExcluir.classList.add('btn', 'btn--cinza-claro')
         botaoExcluir.innerText = 'Excluir'
 
+        botaoExcluir.addEventListener('click', (e) => {
+            e.preventDefault();
+            form.style.display = 'none';
+            deletaHabito.excluirHabito(habitId).style.display = 'block';
+        })
+
         const botaoSalvar  = document.createElement('button')
         botaoSalvar.classList.add('btn', 'btn--disabled')
         botaoSalvar.innerText = 'Salvar alterações'
+
+        //BOTAO SALVAR NAO FUNCIONA
 
         divEdicao.append(botaoExcluir, botaoSalvar)
         form.appendChild(divEdicao)
