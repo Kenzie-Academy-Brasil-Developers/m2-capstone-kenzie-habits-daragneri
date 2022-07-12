@@ -122,6 +122,12 @@ input {
     color: white;
     font-size: 1rem;
     font-weight: 600;
+    transition: 144ms;
+}
+.form button:hover {
+    cursor: pointer;
+    background-color: #1a36ed;
+
 }
 .login {
     display: flex;
@@ -129,10 +135,22 @@ input {
     gap: 0.5rem;
     margin-bottom: 1.375rem;
 }
+.login input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+}
 .senha {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+.senha input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
 }
 
 .label {
