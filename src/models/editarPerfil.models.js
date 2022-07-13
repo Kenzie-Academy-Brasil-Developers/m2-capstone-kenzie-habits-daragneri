@@ -1,9 +1,9 @@
-import Habits from './Api.habits.controller.js';
+import Users from '../controller/Api.users.controller.js';
 
 const body = document.querySelector('body');
 
-class editarPerfil {
-    static criarEdit(habitId) {
+export default class editarPerfil {
+    static criarEdit() {
         const fundoPreto = document.createElement('div');
         fundoPreto.classList.add('fundo__preto')
 
@@ -58,7 +58,7 @@ class editarPerfil {
                 user_image: textField.value
             }
 
-            await Habits.updateHabit(dadosEditados, idHabits)
+            await Users.updateProfile(dadosEditados)
 
         })
 
@@ -86,4 +86,3 @@ class editarPerfil {
     }
 }
 
-editarPerfil.criarEdit()

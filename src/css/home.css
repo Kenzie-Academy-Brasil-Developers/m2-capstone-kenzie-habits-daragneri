@@ -133,3 +133,47 @@
     background-color: rgba(var(--marca-azul-escuro), 1);
     margin: 0 auto;
 }
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    right: 1px;
+    font-size: 16px;
+  }
+  
+  .sumir{
+    display: none;
+  }
+  #editarPerfil{
+    display: flex;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  #editarPerfil p{
+    margin-left: 10px;
+  }
+  #sairDoApp{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    border: none;
+    display: flex;
+    height: 30px;
+    cursor: pointer;
+  }
+  #sairDoApp p{
+    margin-left: 10px;
+  }
+  
