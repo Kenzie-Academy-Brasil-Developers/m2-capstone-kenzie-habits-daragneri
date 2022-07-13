@@ -1,4 +1,4 @@
-
+import editarPerfil from "../models/editarPerfil.models.js"
 
 let imgCabecalho = document.getElementById('headerDivImg')
 let dropdownContent = document.getElementById('dropdownContent')
@@ -15,8 +15,14 @@ imgCabecalho.addEventListener('click', () => {
     }
 })
 
+
 sairDoApp.addEventListener('click', () => {
     window.history.back()
     
     localStorage.clear()
 })
+
+editrPerfil.addEventListener('click', () => {
+    editarPerfil.criarEdit()
+})
+

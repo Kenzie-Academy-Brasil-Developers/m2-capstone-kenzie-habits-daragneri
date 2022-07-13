@@ -1,4 +1,4 @@
-import Users from '../controller/Api.users.controller';
+import Users from '../controller/Api.users.controller.js';
 
 const body = document.querySelector('body');
 
