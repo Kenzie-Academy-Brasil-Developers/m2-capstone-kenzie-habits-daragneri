@@ -2,7 +2,7 @@ export default class Habits {
     static baseUrl = 'https://habits-kenzie.herokuapp.com'
 
     static async createHabit(data) {
-        const token = localStorage.getItem('@capstone:token')
+        const token = JSON.parse(localStorage.getItem('@capstone:token'))
         return await fetch(`${this.baseUrl}/api/habits`, {
                 method: "POST",
                 headers: {
@@ -17,7 +17,7 @@ export default class Habits {
     }
 
     static async readAllHabits() {
-        const token = localStorage.getItem('@capstone:token')
+        const token = JSON.parse(localStorage.getItem('@capstone:token'))
         return await fetch(`${this.baseUrl}/api/habits`, {
                 method: "GET",
                 headers: {
@@ -30,8 +30,8 @@ export default class Habits {
     }
 
     static async getHabitByCategory(category) {
-        const token = localStorage.getItem('@capstone:token')
-        return await fetch(`${this.baseUrl}/api/habits/category/:${category}`, {
+        const token = JSON.parse(localStorage.getItem('@capstone:token'))
+        return await fetch(`${this.baseUrl}/api/habits/category/${category}`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -43,8 +43,8 @@ export default class Habits {
     }
 
     static async updateHabit(data, habitId) {
-        const token = localStorage.getItem('@capstone:token')
-        return await fetch(`${this.baseUrl}/api/habits/:${habitId}`, {
+        const token = JSON.parse(localStorage.getItem('@capstone:token'))
+        return await fetch(`${this.baseUrl}/api/habits/${habitId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export default class Habits {
     }
 
     static async completeHabit(habitId) {
-        const token = localStorage.getItem('@capstone:token')
+        const token = JSON.parse(localStorage.getItem('@capstone:token'))
         return await fetch(`${this.baseUrl}/api/habits/complete/${habitId}`, {
                 method: "PATCH",
                 headers: {
@@ -71,7 +71,7 @@ export default class Habits {
     }
 
     static async deleteHabit(habitId) {
-        const token = localStorage.getItem('@captsone:token')
+        const token = JSON.parse(localStorage.getItem('@captsone:token'))
         return await fetch(`${this.baseUrl}/api/habits/${habitId}`, {
                 method: "DELETE",
                 headers: {
@@ -79,7 +79,9 @@ export default class Habits {
                 },
             })
             .then(res => res.json())
-            .then(res => res)
+            .then(res => console.log(res))
             .catch(err => console.log(err))
     }
 }
+
+
