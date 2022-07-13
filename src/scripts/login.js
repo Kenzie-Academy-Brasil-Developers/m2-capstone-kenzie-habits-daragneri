@@ -1,4 +1,6 @@
 import Users from "../controller/Api.users.controller.js"
+import Habits from "../controller/Api.habits.controller.js"
+
 const form = document.querySelector(".form")
 form.addEventListener("submit", async (event) => {
     event.preventDefault()
@@ -8,3 +10,4 @@ form.addEventListener("submit", async (event) => {
     }
     await Users.userLogin(login)
 })
+
