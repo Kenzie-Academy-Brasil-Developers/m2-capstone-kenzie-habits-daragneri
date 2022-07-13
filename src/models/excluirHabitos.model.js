@@ -61,7 +61,7 @@ export default class deletaHabito {
             e.preventDefault();
             Habits.deleteHabit(habitId)
             .then(response => response)
-            .remove()
+            fundoPreto.style.display = 'none';
         })
 
         divExcluir.append(botaoCancelar, botaoExcluir)

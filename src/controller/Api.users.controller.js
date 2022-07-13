@@ -16,7 +16,7 @@ export default class Users {
                     localStorage.setItem('@capstone:token', JSON.stringify(res.token))
                     localStorage.setItem('@capstone:username', JSON.stringify(res.response.usr_name))
                     localStorage.setItem('@capstone:usr_img', JSON.stringify(res.response.usr_image))
-                    window.location.href = "../views/homepage.views.html"
+                    window.location.href = "./src/views/homepage.views.html"
                 } else {
                     throw new Error(res.message)
                 }
