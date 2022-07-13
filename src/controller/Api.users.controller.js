@@ -3,12 +3,12 @@ export default class Users {
 
     static async userLogin(data) {
         return await fetch(`${this.baseUrl}/api/userLogin`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
             .then(res => res.json())
             .then((res) => {
                 console.log(res)
@@ -30,19 +30,18 @@ export default class Users {
     }
 
     static async updateProfile(data) {
-        const token = JSON.parse(localStorage.getItem('@captsone:token'))
+        const token = JSON.parse(localStorage.getItem('@capstone:token'))
         return await fetch(`${this.baseUrl}/api/user/profile`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify(data),
-        })
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify(data),
+            })
             .then(res => res.json())
             .then(res => res)
             .catch(err => console.log(err))
     }
 
 }
-
