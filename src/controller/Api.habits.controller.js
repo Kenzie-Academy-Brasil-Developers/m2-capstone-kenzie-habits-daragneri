@@ -71,7 +71,9 @@ export default class Habits {
     }
 
     static async deleteHabit(habitId) {
-        const token = JSON.parse(localStorage.getItem('@captsone:token'))
+
+        const token = JSON.parse(localStorage.getItem('@capstone:token'))
+
         return await fetch(`${this.baseUrl}/api/habits/${habitId}`, {
                 method: "DELETE",
                 headers: {
