@@ -1,8 +1,9 @@
 import deletaHabito from '../models/excluirHabitos.model.js'
+import Habits from '../controller/Api.habits.controller.js'
 
 const body = document.querySelector('body');
 
-class editarHabito {
+export default class editarHabito {
     static criarEdit(habitId) {
         const fundoPreto = document.createElement('div');
         fundoPreto.classList.add('fundo__preto')
@@ -34,6 +35,7 @@ class editarHabito {
         let titulo = this.modalInputName('Título')
         const formTitle = document.createElement('input')
         formTitle.classList.add('campo__titulo')
+        formTitle.id = 'formTitle'
         modalBody.append(titulo, formTitle)
         form.appendChild(modalBody)
 
@@ -42,6 +44,7 @@ class editarHabito {
         const textField = document.createElement('textarea')
         textField.classList.add('campo__descricao')
         textField.placeholder = 'Digite uma descrição'
+        textField.id = 'textField'
         modalBody2.append(descricao, textField)
         form.appendChild(modalBody2)
 
@@ -49,6 +52,7 @@ class editarHabito {
         let categoria = this.modalInputName('Categoria')
         const select = document.createElement('select')
         select.name = 'categoria'
+        select.id = 'categoria'
         
         const option = document.createElement('option')
         option.disabled, option.selected, option.hidden
@@ -59,22 +63,27 @@ class editarHabito {
         opt1.text = '🧡 Saúde'
         
         const opt2 = document.createElement('option')
-        opt2.value = 'alimentacao'
-        opt2.text = '🍴 Alimentação'
+        opt2.value = 'casa'
+        opt2.text = '🏠 Casa'
 
         const opt3 = document.createElement('option')
-        opt3.value = 'exercicios'
-        opt3.text = '🏃 Exercícios'
+        opt3.value = 'lazer'
+        opt3.text = '🏃 Lazer'
         
         const opt4 = document.createElement('option')
         opt4.value = 'estudos'
         opt4.text = '📖 Estudos'
+
+        const opt5 = document.createElement('option')
+        opt5.value = 'trabalho'
+        opt5.text = '💼 Trabalho'
         
         select.add(option)
         select.add(opt1)
         select.add(opt2)
         select.add(opt3)
         select.add(opt4)
+        select.add(opt5)
         modalBody3.append(categoria, select)
         form.appendChild(modalBody3)
 
@@ -97,15 +106,33 @@ class editarHabito {
 
         botaoExcluir.addEventListener('click', (e) => {
             e.preventDefault();
-            form.style.display = 'none';
-            deletaHabito.excluirHabito(habitId).style.display = 'block';
+            fundoPreto.style.display = 'none';
+            deletaHabito.excluirHabito(habitId)
         })
 
         const botaoSalvar  = document.createElement('button')
         botaoSalvar.classList.add('btn', 'btn--disabled')
         botaoSalvar.innerText = 'Salvar alterações'
 
-        //BOTAO SALVAR NAO FUNCIONA
+        botaoSalvar.addEventListener('click', (e) => {
+            e.preventDefault()
+            const titulo = document.getElementById('formTitle').value
+            const textField = document.getElementById('textField').value
+            const select = document.getElementById('categoria').value
+
+            Habits.updateHabit({
+                    "habit_title": titulo,
+                    "habit_description": textField,
+                    "habit_category": select}, habitId)
+
+            fundoPreto.style.display = 'none';
+            window.location.reload()
+        })
+
+        form.addEventListener('keyup', () => {
+            botaoSalvar.classList.remove('btn--disabled')
+            botaoSalvar.classList.add('btn--azul')
+        })
 
         divEdicao.append(botaoExcluir, botaoSalvar)
         form.appendChild(divEdicao)
@@ -128,5 +155,3 @@ class editarHabito {
         return h5
     }
 }
-
-//editarHabito.criarEdit()

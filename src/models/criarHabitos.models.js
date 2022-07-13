@@ -63,22 +63,27 @@ class criarHabito {
         opt1.text = '🧡 Saúde'
         
         const opt2 = document.createElement('option')
-        opt2.value = 'alimentacao'
-        opt2.text = '🍴 Alimentação'
+        opt2.value = 'casa'
+        opt2.text = '🏠 Casa'
 
         const opt3 = document.createElement('option')
-        opt3.value = 'exercicios'
-        opt3.text = '🏃 Exercícios'
+        opt3.value = 'lazer'
+        opt3.text = '🏃 Lazer'
         
         const opt4 = document.createElement('option')
         opt4.value = 'estudos'
         opt4.text = '📖 Estudos'
+
+        const opt5 = document.createElement('option')
+        opt5.value = 'trabalho'
+        opt5.text = '💼 Trabalho'
         
         select.add(option)
         select.add(opt1)
         select.add(opt2)
         select.add(opt3)
         select.add(opt4)
+        select.add(opt5)
         modalBody3.append(categoria, select)
         form.appendChild(modalBody3)
         
