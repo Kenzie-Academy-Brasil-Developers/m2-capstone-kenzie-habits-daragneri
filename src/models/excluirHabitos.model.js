@@ -1,4 +1,5 @@
 import Habits from '../controller/Api.habits.controller.js'
+import editarHabito from '../models/editarHabitos.models.js'
 
 const body = document.querySelector('body');
 
@@ -50,7 +51,7 @@ export default class deletaHabito {
 
         botaoCancelar.addEventListener('click', (e) => {
             e.preventDefault()
-            fundoPreto.style.display = 'none';
+            editarHabito.criarEdit();
         })
 
         const botaoExcluir = document.createElement('button')
@@ -60,7 +61,7 @@ export default class deletaHabito {
         botaoExcluir.addEventListener('click', (e) => {
             e.preventDefault();
             Habits.deleteHabit(habitId)
-            .then(response => response)
+            .then(response => console.log(response))
             fundoPreto.style.display = 'none';
         })
 
