@@ -88,7 +88,7 @@ export default class editarHabito {
         form.appendChild(modalBody3)
 
         const modalBody4 = document.createElement('div')
-        modalBody4.classList.add('form__modal__body', 'status')
+        modalBody4.classList.add('form__modal__body', 'status__checkbox')
 
         const span     = document.createElement('span')
         span.innerText = 'Status'

@@ -35,7 +35,7 @@
 }
 
 .campo__titulo {
-    width: 100%;
+    width: 99%;
     max-height: 1rem;
     background-color: rgba(var(--grey-4), 1);
     border: 1px solid rgba(var(--grey-3), 0.2);
@@ -48,7 +48,6 @@
     border: 1px solid rgba(var(--grey-3), 0.2);
 }
 
-
 textarea {
     box-sizing: border-box; 
     max-width: 100%; 
@@ -56,18 +55,15 @@ textarea {
     padding: 0.5rem;
 }
 
-
 .form__modal > button {
     width: 100%;
 }
 
-.status {
-    /* display: flex; */
+.status__checkbox {
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-
-    padding: 1rem 0.5rem;
-
+    justify-content: space-between; 
+    padding: 1rem 0;
 }
 
 .form__modal__body > span {
@@ -84,6 +80,7 @@ textarea {
 
 .form__modal__body > select + option {
     width: 100%;
+    color: rgba(var(--grey-5), 1)
 }
 
 .btn__excluir {
@@ -92,11 +89,27 @@ textarea {
     max-width: 100%;
 }
 
+.btn__excluir > button {
+    font-size: .75rem;
+    font-weight: 500;
+}
+
 .excluir {
     width: 25rem;
-
     gap: 3rem;
+}
 
+.btn__editar {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn__editar > .btn--cinza-claro {
+    width: 40%
+}
+
+.btn__editar > .btn--disabled {
+    width: 55%
 }
 
 .fundo__preto {
