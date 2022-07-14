@@ -114,6 +114,7 @@ async function listarHabitosFiltrados(){
         let editar = document.createElement('td')
         let tituloReducer = document.createElement('div')
         let categoriaColor = document.createElement('div')
+        let svgHugger = document.createElement('div')
 
         tituloReducer.className = 'titulo-reducer'
         tituloReducer.innerText = elem.habit_title
@@ -134,13 +135,14 @@ async function listarHabitosFiltrados(){
         editar.id = elem.habit_id
         editar.innerHTML = '<svg width="27" height="7" viewBox="0 0 27 7" fill="none"xmlns="http://www.w3.org/2000/svg"><circle cx="3.8877" cy="3.5" r="3" fill="#ADB5BD" /><circle cx="13.8877" cy="3.5" r="3" fill="#ADB5BD" /><circle cx="23.8877" cy="3.5" r="3" fill="#ADB5BD" /></svg>'
 
+        svgHugger.appendChild(editar)
         titulo.appendChild(tituloReducer)
         categoria.appendChild(categoriaColor)
         row.appendChild(status)
         row.appendChild(titulo)
         row.appendChild(descricao)
         row.appendChild(categoria)
-        row.appendChild(editar)
+        row.appendChild(svgHugger)
         tabela.appendChild(row)
 
         editar.addEventListener('click', () => {
