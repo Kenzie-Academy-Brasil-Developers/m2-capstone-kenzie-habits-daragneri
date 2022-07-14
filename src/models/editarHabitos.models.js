@@ -107,23 +107,23 @@ export default class editarHabito {
         botaoExcluir.addEventListener('click', (e) => {
             e.preventDefault();
             fundoPreto.style.display = 'none';
-            deletaHabito.excluirHabito(habitId)
+            deletaHabito.excluirHabito()
         })
 
         const botaoSalvar  = document.createElement('button')
         botaoSalvar.classList.add('btn', 'btn--disabled')
         botaoSalvar.innerText = 'Salvar alterações'
 
-        botaoSalvar.addEventListener('click', (e) => {
+        botaoSalvar.addEventListener('click', async (e) => {
             e.preventDefault()
             const titulo = document.getElementById('formTitle').value
             const textField = document.getElementById('textField').value
             const select = document.getElementById('categoria').value
 
-            Habits.updateHabit({
+            await Habits.updateHabit({
                     "habit_title": titulo,
                     "habit_description": textField,
-                    "habit_category": select}, habitId)
+                    "habit_category": select}, JSON.parse(localStorage.getItem('@capstone:habitId')))
 
             fundoPreto.style.display = 'none';
             window.location.reload()
