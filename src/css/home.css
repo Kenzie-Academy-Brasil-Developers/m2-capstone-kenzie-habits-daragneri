@@ -169,11 +169,6 @@ main {
     padding: 0.5rem;
 }
 
-@media screen and (min-width: 425px) {
-    .container-cabecalho-lista-opcao {
-        justify-content: flex-end;
-    }
-}
 @media screen and (min-width: 768px) {
     .container-cabecalho-lista {
         display: flex;
@@ -318,15 +313,22 @@ td {
     }
     
 }
+
 .botao-carregar button {
     margin: 4.688rem auto;
 
 }
 
+@media screen and (max-width: 500px){
+    .container-cabecalho-lista-opcao .btn-mobile {
+        width: 2rem;
+        height: 2rem;
+    
+}
+}
 
 
 
- 
 
 .btn{
     background-color: rgba(var(--marca-azul-escuro), 1);

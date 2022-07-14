@@ -62,12 +62,9 @@ export default class editarPerfil {
                 console.log("funcionou")
             } else {
                 await Users.updateProfile(dadosEditados)
+                //window.location.reload()
             }
-            //window.location.reload()
         })
-
-        //BOTAO SALVAR NAO FUNCIONA
-
         divEdicao.append(botaoSalvar)
         form.appendChild(divEdicao)
 
