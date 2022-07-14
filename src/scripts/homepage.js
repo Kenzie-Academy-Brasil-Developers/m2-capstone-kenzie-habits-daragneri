@@ -2,6 +2,20 @@ import editarPerfil from "../models/editarPerfil.models.js"
 import Habits from '../controller/Api.habits.controller.js'
 
 
+class Header {
+    static renderizarHeader() {
+
+        const nomeUser = document.querySelector(".header-nav-h2")
+        const fotoUser2 = document.querySelector(".header-nav-img")
+
+        fotoUser2.src = JSON.parse(localStorage.getItem("@capstone:usr_img"))
+        nomeUser.innerHTML = JSON.parse(localStorage.getItem("@capstone:username"))
+    }
+}
+Header.renderizarHeader()
+
+
+
 let imgCabecalho = document.getElementById('headerDivImg')
 let dropdownContent = document.getElementById('dropdownContent')
 let editrPerfil = document.getElementById('editarPerfil')
@@ -9,11 +23,10 @@ let sairDoApp = document.getElementById('sairDoApp')
 
 imgCabecalho.src = JSON.parse(localStorage.getItem('@capstone:usr_img'))
 imgCabecalho.addEventListener('click', () => {
-    console.log('jerson')
+
     if(dropdownContent.className == 'dropdown-content sumir'){
         dropdownContent.className = 'dropdown-content'
-    }
-    else{
+    } else {
         dropdownContent.className = 'dropdown-content sumir'
     }
 })
@@ -21,7 +34,7 @@ imgCabecalho.addEventListener('click', () => {
 
 sairDoApp.addEventListener('click', () => {
     window.history.back()
-    
+
     localStorage.clear()
 })
 
@@ -87,3 +100,6 @@ listarHabitos()
                         <circle cx="23.8877" cy="3.5" r="3" fill="#ADB5BD" />
                     </svg></td>
             </tr>*/
+
+})
+
