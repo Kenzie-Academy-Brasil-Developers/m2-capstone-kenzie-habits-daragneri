@@ -36,4 +36,6 @@ sairDoApp.addEventListener('click', () => {
 
 editrPerfil.addEventListener('click', () => {
     editarPerfil.criarEdit()
+    const inputNome = document.querySelector(".campo__titulo")
+    inputNome.value = JSON.parse(localStorage.getItem("@capstone:username"))
 })
