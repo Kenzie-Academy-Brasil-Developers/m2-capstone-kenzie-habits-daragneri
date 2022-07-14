@@ -34,6 +34,7 @@ export default class editarPerfil {
         let titulo = this.modalInputName('Nome')
         const formTitle = document.createElement('input')
         formTitle.classList.add('campo__titulo')
+        formTitle.value = JSON.parse(localStorage.getItem('@capstone:username'))
         modalBody.append(titulo, formTitle)
         form.appendChild(modalBody)
 
@@ -41,6 +42,7 @@ export default class editarPerfil {
         let descricao = this.modalInputName('Url da imagem do perfil')
         const textField = document.createElement('input')
         textField.classList.add('campo__titulo')
+        textField.value = JSON.parse(localStorage.getItem('@capstone:usr_img'))
         modalBody2.append(descricao, textField)
         form.appendChild(modalBody2)
 
@@ -55,14 +57,14 @@ export default class editarPerfil {
             event.preventDefault()
 
             const dadosEditados = {
-                user_image: textField.value
+                usr_image: textField.value
             }
 
             if (textField.value == "" || textField.value == null) {
                 console.log("funcionou")
             } else {
                 await Users.updateProfile(dadosEditados)
-                //window.location.reload()
+                window.location.reload()
             }
         })
         divEdicao.append(botaoSalvar)
@@ -86,3 +88,4 @@ export default class editarPerfil {
         return h5
     }
 }
+
