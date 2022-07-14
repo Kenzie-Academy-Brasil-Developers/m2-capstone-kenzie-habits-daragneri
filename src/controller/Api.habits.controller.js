@@ -53,7 +53,7 @@ export default class Habits {
                 body: JSON.stringify(data)
             })
             .then(res => res.json())
-            .then(res => res)
+            .then(res => console.log(res))
             .catch(err => console.log(err))
     }
 

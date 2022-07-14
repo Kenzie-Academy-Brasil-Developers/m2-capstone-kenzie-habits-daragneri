@@ -274,6 +274,19 @@ td {
 }
 .editar-conteudo svg {
     padding-left: 0.8rem;
+    cursor: pointer;
+}
+.buttonTodos{
+    cursor: pointer;
+}
+.buttonTodos:hover{
+    text-decoration: underline;
+}
+.buttonConcluidos{
+    cursor: pointer;
+}
+.buttonConcluidos:hover{
+    text-decoration: underline;
 }
 @media screen and (min-width: 375px) {
     .titulo {
