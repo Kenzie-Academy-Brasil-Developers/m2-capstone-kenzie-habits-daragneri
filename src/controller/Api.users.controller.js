@@ -40,7 +40,9 @@ export default class Users {
                 body: JSON.stringify(data),
             })
             .then(res => res.json())
-            .then(res => res)
+            .then(res => {
+                localStorage.setItem('@capstone:usr_img', JSON.stringify(data.usr_image))
+            })
             .catch(err => console.log(err))
     }
 
