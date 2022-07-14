@@ -58,8 +58,12 @@ export default class editarPerfil {
                 user_image: textField.value
             }
 
-            await Users.updateProfile(dadosEditados)
-
+            if (textField.value == "" || textField.value == null) {
+                console.log("funcionou")
+            } else {
+                await Users.updateProfile(dadosEditados)
+            }
+            //window.location.reload()
         })
 
         //BOTAO SALVAR NAO FUNCIONA
@@ -85,4 +89,3 @@ export default class editarPerfil {
         return h5
     }
 }
-

@@ -5,6 +5,20 @@ import editarHabito from '../models/editarHabitos.models.js'
 
 
 
+class Header {
+    static renderizarHeader() {
+
+        const nomeUser = document.querySelector(".header-nav-h2")
+        const fotoUser2 = document.querySelector(".header-nav-img")
+
+        fotoUser2.src = JSON.parse(localStorage.getItem("@capstone:usr_img"))
+        nomeUser.innerHTML = JSON.parse(localStorage.getItem("@capstone:username"))
+    }
+}
+Header.renderizarHeader()
+
+
+
 let imgCabecalho = document.getElementById('headerDivImg')
 let dropdownContent = document.getElementById('dropdownContent')
 let editrPerfil = document.getElementById('editarPerfil')
@@ -12,11 +26,10 @@ let sairDoApp = document.getElementById('sairDoApp')
 
 imgCabecalho.src = JSON.parse(localStorage.getItem('@capstone:usr_img'))
 imgCabecalho.addEventListener('click', () => {
-    console.log('jerson')
-    if(dropdownContent.className == 'dropdown-content sumir'){
+
+    if (dropdownContent.className == 'dropdown-content sumir') {
         dropdownContent.className = 'dropdown-content'
-    }
-    else{
+    } else {
         dropdownContent.className = 'dropdown-content sumir'
     }
 })
@@ -24,18 +37,21 @@ imgCabecalho.addEventListener('click', () => {
 
 sairDoApp.addEventListener('click', () => {
     window.history.back()
-    
+
     localStorage.clear()
 })
 
 editrPerfil.addEventListener('click', () => {
     editarPerfil.criarEdit()
+
+    const inputNome = document.querySelector(".campo__titulo")
+    inputNome.value = JSON.parse(localStorage.getItem("@capstone:username"))
 })
 
 
 
 
-async function listarHabitos(){
+async function listarHabitos() {
     let tabela = document.getElementById('tabela')
     let habitos = await Habits.readAllHabits()
     habitos.forEach(elem => {
@@ -137,6 +153,7 @@ async function listarHabitosFiltrados(){
     }
     });
 }
+
 listarHabitos()
 
 let buttonCriar = document.getElementById('buttonCriar')
@@ -158,3 +175,4 @@ concluidos.addEventListener('click', (event) => {
     tabela.innerHTML = '<tr><th class="status" scope="col">Status</th><th class="titulo" scope="col">Título</th><th class="descricao" scope="col">Descrição</th><th class="categoria" scope="col">Categoria</th><th class="editar" scope="col">Editar</th></tr>'
     listarHabitosFiltrados()
 })
+
