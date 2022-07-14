@@ -24,7 +24,7 @@ let sairDoApp = document.getElementById('sairDoApp')
 imgCabecalho.src = JSON.parse(localStorage.getItem('@capstone:usr_img'))
 imgCabecalho.addEventListener('click', () => {
 
-    if(dropdownContent.className == 'dropdown-content sumir'){
+    if (dropdownContent.className == 'dropdown-content sumir') {
         dropdownContent.className = 'dropdown-content'
     } else {
         dropdownContent.className = 'dropdown-content sumir'
@@ -45,12 +45,10 @@ editrPerfil.addEventListener('click', () => {
     inputNome.value = JSON.parse(localStorage.getItem("@capstone:username"))
 })
 
-})
 
 
 
-
-async function listarHabitos(){
+async function listarHabitos() {
     let tabela = document.getElementById('tabela')
     let habitos = await Habits.readAllHabits()
     habitos.forEach(elem => {
@@ -88,24 +86,3 @@ async function listarHabitos(){
     });
 }
 listarHabitos()
-
-/*<tr>
-                <td class="status-conteudo"><input class="checkbox-estilizado" type="checkbox"></td>
-                <td class="titulo-conteudo">
-                    <div class="titulo-reducer">Fazer exercícios pela manhã</div>
-                </td>
-                <td class="descricao-conteudo">Ir correr na praça</td>
-                <td class="categoria-conteudo">
-                    <div class="categoria-color">Saúde</div>
-                </td>
-                <td class="editar-conteudo"><svg width="27" height="7" viewBox="0 0 27 7" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="3.8877" cy="3.5" r="3" fill="#ADB5BD" />
-                        <circle cx="13.8877" cy="3.5" r="3" fill="#ADB5BD" />
-                        <circle cx="23.8877" cy="3.5" r="3" fill="#ADB5BD" />
-                    </svg></td>
-            </tr>*/
-
-})
-
-
