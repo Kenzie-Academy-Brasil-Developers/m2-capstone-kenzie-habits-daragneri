@@ -50,7 +50,8 @@ export default class deletaHabito {
         botaoCancelar.innerText = 'Cancelar'
 
         botaoCancelar.addEventListener('click', (e) => {
-            e.preventDefault()
+            e.preventDefault();
+            fundoPreto.style.display = 'none';
             editarHabito.criarEdit();
         })
 
