@@ -58,11 +58,10 @@ export default class deletaHabito {
         botaoExcluir.classList.add('btn', 'btn--vermelho')
         botaoExcluir.innerText = 'Sim, excluir este habíto'
 
-        botaoExcluir.addEventListener('click', (e) => {
+        botaoExcluir.addEventListener('click', async (e) => {
             e.preventDefault();
-            Habits.deleteHabit(habitId)
-            .then(response => console.log(response))
-            fundoPreto.style.display = 'none';
+            await Habits.deleteHabit(JSON.parse(localStorage.getItem('@capstone:habitId')))
+            window.location.reload()
         })
 
         divExcluir.append(botaoCancelar, botaoExcluir)

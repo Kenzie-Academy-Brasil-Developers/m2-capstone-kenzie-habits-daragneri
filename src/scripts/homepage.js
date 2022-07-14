@@ -1,5 +1,8 @@
 import editarPerfil from "../models/editarPerfil.models.js"
 import Habits from '../controller/Api.habits.controller.js'
+import criarHabito from '../models/criarHabitos.models.js'
+import editarHabito from '../models/editarHabitos.models.js'
+
 
 
 let imgCabecalho = document.getElementById('headerDivImg')
@@ -36,7 +39,6 @@ async function listarHabitos(){
     let tabela = document.getElementById('tabela')
     let habitos = await Habits.readAllHabits()
     habitos.forEach(elem => {
-        console.log(elem)
         let row = document.createElement('tr')
         let status = document.createElement('td')
         let titulo = document.createElement('td')
@@ -51,12 +53,18 @@ async function listarHabitos(){
         categoriaColor.className = 'categoria-color'
         categoriaColor.innerText = elem.habit_category
         status.className = 'status-conteudo'
-        status.innerHTML = '<input class="checkbox-estilizado" type="checkbox">'
+        if(elem.habit_status == true){
+            status.innerHTML = '<input class="checkbox-estilizado" type="checkbox" checked>'
+        }else{
+            status.innerHTML = '<input class="checkbox-estilizado" type="checkbox">'
+        }
+
         titulo.className = 'titulo-conteudo'
         descricao.className = 'descricao-conteudo'
         descricao.innerText = elem.habit_description
         categoria.className = 'categoria-conteudo'
         editar.className = 'editar-conteudo'
+        editar.id = elem.habit_id
         editar.innerHTML = '<svg width="27" height="7" viewBox="0 0 27 7" fill="none"xmlns="http://www.w3.org/2000/svg"><circle cx="3.8877" cy="3.5" r="3" fill="#ADB5BD" /><circle cx="13.8877" cy="3.5" r="3" fill="#ADB5BD" /><circle cx="23.8877" cy="3.5" r="3" fill="#ADB5BD" /></svg>'
 
         titulo.appendChild(tituloReducer)
@@ -67,23 +75,86 @@ async function listarHabitos(){
         row.appendChild(categoria)
         row.appendChild(editar)
         tabela.appendChild(row)
+
+        editar.addEventListener('click', () => {
+            editarHabito.criarEdit()
+            localStorage.setItem('@capstone:habitId', editar.id)
+        })
+        status.addEventListener('click', () => {
+            Habits.completeHabit(editar.id).then(res => console.log(res))
+        })
+    });
+}
+async function listarHabitosFiltrados(){
+    let tabela = document.getElementById('tabela')
+    let habitos = await Habits.readAllHabits()
+    habitos.forEach(elem => {
+        if(elem.habit_status == true){
+        let row = document.createElement('tr')
+        let status = document.createElement('td')
+        let titulo = document.createElement('td')
+        let descricao = document.createElement('td')
+        let categoria = document.createElement('td')
+        let editar = document.createElement('td')
+        let tituloReducer = document.createElement('div')
+        let categoriaColor = document.createElement('div')
+
+        tituloReducer.className = 'titulo-reducer'
+        tituloReducer.innerText = elem.habit_title
+        categoriaColor.className = 'categoria-color'
+        categoriaColor.innerText = elem.habit_category
+        status.className = 'status-conteudo'
+        if(elem.habit_status == true){
+            status.innerHTML = '<input class="checkbox-estilizado" type="checkbox" checked>'
+        }else{
+            status.innerHTML = '<input class="checkbox-estilizado" type="checkbox">'
+        }
+
+        titulo.className = 'titulo-conteudo'
+        descricao.className = 'descricao-conteudo'
+        descricao.innerText = elem.habit_description
+        categoria.className = 'categoria-conteudo'
+        editar.className = 'editar-conteudo'
+        editar.id = elem.habit_id
+        editar.innerHTML = '<svg width="27" height="7" viewBox="0 0 27 7" fill="none"xmlns="http://www.w3.org/2000/svg"><circle cx="3.8877" cy="3.5" r="3" fill="#ADB5BD" /><circle cx="13.8877" cy="3.5" r="3" fill="#ADB5BD" /><circle cx="23.8877" cy="3.5" r="3" fill="#ADB5BD" /></svg>'
+
+        titulo.appendChild(tituloReducer)
+        categoria.appendChild(categoriaColor)
+        row.appendChild(status)
+        row.appendChild(titulo)
+        row.appendChild(descricao)
+        row.appendChild(categoria)
+        row.appendChild(editar)
+        tabela.appendChild(row)
+
+        editar.addEventListener('click', () => {
+            editarHabito.criarEdit()
+            localStorage.setItem('@capstone:habitId', editar.id)
+        })
+        status.addEventListener('click', () => {
+            Habits.completeHabit(editar.id).then(res => console.log(res))
+        })
+    }
     });
 }
 listarHabitos()
 
-/*<tr>
-                <td class="status-conteudo"><input class="checkbox-estilizado" type="checkbox"></td>
-                <td class="titulo-conteudo">
-                    <div class="titulo-reducer">Fazer exercícios pela manhã</div>
-                </td>
-                <td class="descricao-conteudo">Ir correr na praça</td>
-                <td class="categoria-conteudo">
-                    <div class="categoria-color">Saúde</div>
-                </td>
-                <td class="editar-conteudo"><svg width="27" height="7" viewBox="0 0 27 7" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="3.8877" cy="3.5" r="3" fill="#ADB5BD" />
-                        <circle cx="13.8877" cy="3.5" r="3" fill="#ADB5BD" />
-                        <circle cx="23.8877" cy="3.5" r="3" fill="#ADB5BD" />
-                    </svg></td>
-            </tr>*/
+let buttonCriar = document.getElementById('buttonCriar')
+
+buttonCriar.addEventListener('click', async () =>{
+   await criarHabito.criaHabito()
+   
+})
+
+let todos = document.getElementById('todos')
+let concluidos = document.getElementById('concluidos')
+
+todos.addEventListener('click', (event) => {
+    tabela.innerHTML = '<tr><th class="status" scope="col">Status</th><th class="titulo" scope="col">Título</th><th class="descricao" scope="col">Descrição</th><th class="categoria" scope="col">Categoria</th><th class="editar" scope="col">Editar</th></tr>'
+    listarHabitos()
+})
+
+concluidos.addEventListener('click', (event) => {
+    tabela.innerHTML = '<tr><th class="status" scope="col">Status</th><th class="titulo" scope="col">Título</th><th class="descricao" scope="col">Descrição</th><th class="categoria" scope="col">Categoria</th><th class="editar" scope="col">Editar</th></tr>'
+    listarHabitosFiltrados()
+})

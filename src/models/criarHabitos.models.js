@@ -2,13 +2,14 @@ import Habits from '../controller/Api.habits.controller.js'
 
 const body = document.querySelector('body');
 
-class criarHabito {
+export default class criarHabito {
     static criaHabito() {
         const fundoPreto = document.createElement('div');
         fundoPreto.classList.add('fundo__preto')
 
         const form = document.createElement('form');
         form.classList.add('form__modal')
+        form.id = 'formModalId'
 
         fundoPreto.append(form)
 
@@ -102,7 +103,11 @@ class criarHabito {
                 "habit_description": textField,
                 "habit_category": select
             })
-            .then(response => console.log(response))
+            .then(response => {
+                if(response.message != 'habit_title obrigatório' && response.message != 'habit_description obrigatório' && response.message != 'categorias aceitas: saude, estudos, casa, trabalho e lazer'){
+                    window.location.reload()
+                }
+            })
             .catch(err => console.log(err))
         })
 
